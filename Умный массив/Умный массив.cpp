@@ -10,14 +10,14 @@ public:
 
     void add_element(int element) {
         if (count >= size) {
-            throw std::out_of_range("Массив заполнен. Невозможно добавить больше элементов.");
+            throw std::out_of_range("Array is full. Cannot add more elements.");
         }
         data[count++] = element;
     }
 
     int get_element(size_t index) const {
         if (index >= count) {
-            throw std::out_of_range("Индекс вне диапазона.");
+            throw std::out_of_range("Index out of range.");
         }
         return data[index];
     }

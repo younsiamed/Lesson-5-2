@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <windows.h>
 #include <algorithm>
 
 class smart_array {
@@ -30,12 +29,17 @@ public:
     }
 
     void add_element(int element) {
+        int* new_data = new int[size + 1];
+        std::copy(data, data + size, new_data);
+        new_data[size] = element;
+        delete[] data;
+        data = new_data;
+        size++;
     }
 
 };
 
 int main() {
-    SetConsoleOutputCP(65001);
     smart_array arr(5);
     arr.add_element(1);
     arr.add_element(4);
